@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Crear la aplicación Flask
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'  # Usamos SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///tasks.db')
 app.config['SECRET_KEY'] = 'secret_key'  # Clave secreta para sesiones y mensajes flash
 
 # Inicializar SQLAlchemy
