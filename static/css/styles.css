@@ -1,12 +1,128 @@
+/* Variables de colores */
+:root {
+    --background-start: #FFF8DC; /* Crema claro */
+    --background-end: #F5DEB3; /* Dorado claro */
+    --text-color: #333;
+    --gold-color: #D4AF37;
+    --brown-color: #CD853F;
+}
+
+/* Fondo degradado */
 body {
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
+    width: 70%;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--background-start), var(--background-end));
+    color: var(--text-color);
 }
 
-.container {
-    margin-top: 20px;
+/* Contenedor principal */
+.login-container {
+    width: 360px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-h1 {
-    color: #4CAF50;
+/* Título con estilo vintage */
+h1.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    text-align: center;
+    color: var(--gold-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ornamentos laterales */
+.login-container::before,
+.login-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background: url('ornament.png') no-repeat center; /* Añade un archivo PNG con el ornamento */
+    background-size: contain;
+    opacity: 0.5;
+}
+
+.login-container::before {
+    left: -60px;
+}
+
+.login-container::after {
+    right: -60px;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--brown-color);
+    border-radius: 10px;
+    font-size: 16px;
+    background: #FAF0E6; /* Beige suave */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--gold-color);
+    outline: none;
+}
+
+/* Etiquetas personalizadas */
+label {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--brown-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Botón dorado */
+button {
+    width: 100%;
+    padding: 10px;
+    background: var(--gold-color);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: darken(var(--gold-color), 10%);
+    transform: scale(1.05);
+}
+
+/* Mensajes flash */
+.alert {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.alert-success {
+    background: #e6ffe6;
+    color: #28A745;
+}
+
+.alert-danger {
+    background: #ffe6e6;
+    color: #DC3545;
 }
